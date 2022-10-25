@@ -8,10 +8,8 @@ export class MultiplicationTable {
     }
     let resultString: string = "";
     resultArr.forEach(item => resultString += `${item}\n`);
-    console.log("item ==> ", resultString);
-    
-    
-    return resultString;
+        
+    return resultString.trim();
   }
 
   private isNumsValid(start: number, end: number): boolean {
@@ -21,7 +19,8 @@ export class MultiplicationTable {
   private generateEachLineResult(start: number, end: number): string {
     let resultStr = "";
     for(let i = start; i <= end; i++) {
-      resultStr += `${i}*${end}=${end * i}  `;
+      resultStr += `${i}*${end}=${end * i}`;
+      if(i < end) resultStr += "  "
     }
     return resultStr;
   }
