@@ -60,7 +60,7 @@ describe('Multiplication Table', () => {
     //when
     const rendered = table.render(start, end)
     //then
-    expect(rendered).toBe('null')
+    expect(rendered).toBe('')
   })
 
 })

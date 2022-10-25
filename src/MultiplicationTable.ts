@@ -9,7 +9,7 @@ export class MultiplicationTable {
       return generatedMultiplicationTable
     }
     else {
-      return 'null'}
+      return ''}
   }
 }
 
