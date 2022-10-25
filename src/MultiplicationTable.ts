@@ -1,7 +1,15 @@
-export class MultiplicationTable {
-  public render(start: number, end: number): string{
-    return '1*1=1'
-  }
+export function render(start: number, end: number): string{
+    const validResult = IsNumberValid(start, end)
+    var Result = ''
+    if (validResult == true){
+      for(let i = start; i <= end; i++){
+        Result += GenerateMultipleResult(start, i)
+        if(i != end){
+          Result += '\n'
+        }
+      }
+    }
+  return Result
 }
 
 function IsNumberValid(start: number, end: number): boolean{
@@ -11,14 +19,10 @@ function IsNumberValid(start: number, end: number): boolean{
 function GenerateMultipleResult(start: number, end: number): string{
   var Result = ''
   for(let i = start; i <= end; i++){
-    for(let z = start; z <= end; z++){
-      Result += `${i} * ${z} = ${i*z}`;
-    }
+      Result += `${i}*${end}=${i*end}`;
+      if (i < end){
+        Result += '  '
+      }
   }
   return Result
-}
-
-function GenerateMultipleTable(result: string): string{
-
-
 }
