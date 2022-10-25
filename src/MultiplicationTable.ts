@@ -1,8 +1,13 @@
 export class MultiplicationTable {
   public render(start: number, end: number): string{
     const startNotGreaterThanEnd = isStartNotGreaterThanEnd(start,end)
-
-    return '1*1=1'
+    const inTheRange = isInTheRange(start,end)
+    if (startNotGreaterThanEnd == true && inTheRange == true)
+    {
+      return '1*1=1'
+    }
+    else {
+      return 'null'}
   }
 }
 
