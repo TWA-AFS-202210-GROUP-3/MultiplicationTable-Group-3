@@ -1,4 +1,4 @@
-import {MultiplicationTable,isStartNotGreaterThanEnd} from '../src/MultiplicationTable'
+import {MultiplicationTable,isInTheRange,isStartNotGreaterThanEnd} from '../src/MultiplicationTable'
 
 describe('Multiplication Table', () => {
   it('should render multiplication table of (1, 1)', () => {
@@ -23,6 +23,18 @@ describe('Multiplication Table', () => {
     //when
     const startNotGreaterThanEnd = isStartNotGreaterThanEnd(start, end)
     //then
-    expect(isStartNotGreaterThanEnd).toBeTruthy()
+    expect(startNotGreaterThanEnd).toBeTruthy()
+  })
+
+  it('is the start and end in the range (1, 1)', () => {
+    // given
+    const table = new MultiplicationTable()
+    const start = 1
+    const end = 1
+
+    //when
+    const startAndEndInTheRange = isInTheRange(start, end)
+    //then
+    expect(startAndEndInTheRange).toBeTruthy()
   })
 })

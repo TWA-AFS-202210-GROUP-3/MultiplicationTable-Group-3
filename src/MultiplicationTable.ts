@@ -10,3 +10,7 @@ export function isStartNotGreaterThanEnd(start:number,end:number):boolean{
   return start<=end
 }
 
+export function isInTheRange(start:number,end:number):boolean{
+  return start>=1 && end<=10
+}
+
