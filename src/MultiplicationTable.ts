@@ -14,27 +14,27 @@ export class MultiplicationTable {
 }
 
 export function isStartNotGreaterThanEnd(start:number,end:number):boolean{
-  return start<=end
+  return start <= end
 }
 
 export function isInTheRange(start:number,end:number):boolean{
-  return start>=1 && end<=10
+  return start >= 1 && end <= 10
 }
 
 export function generateMultiplicationTable(start:number,end:number):string {
   let generatedMultiplicationExpressions: string = ''
   let expressions: string = ''
-  for(let i = start; i <= end; i ++ ){
+  for(let i = start; i <= end; i ++){
     for(let j = start; j <= i; j ++){
-      if (start == end){
-        expressions = i + '*' + i + '=' + i * j
+      if (start == end || i == j){
+        expressions = j + '*' + i + '=' + i * j
       }
       else{
-        expressions = i + '*' + i + '=' + i * j + '  '
+        expressions = j + '*' + i + '=' + i * j + '  '
       }
       generatedMultiplicationExpressions = generatedMultiplicationExpressions + expressions   
     }
-    if (start != end){
+    if (start != end &&  i != end){
       generatedMultiplicationExpressions = generatedMultiplicationExpressions + '\n'
     }
   }
