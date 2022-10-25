@@ -39,4 +39,16 @@ describe('Multiplication Table', () => {
     //then
     expect(rendered).toBe('')
   })
+  it('should render multiplication table of (3, 3)', () => {
+    // given
+    const table = new MultiplicationTable()
+    const start = 3
+    const end = 3
+
+    //when
+    const rendered = table.render(start, end)
+
+    //then
+    expect(rendered).toBe('3*3=9')
+  })
 })
