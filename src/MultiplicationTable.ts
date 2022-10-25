@@ -1,62 +1,67 @@
 export class MultiplicationTable {
 
   public render(start: number, end: number): string{
-    if(!isInputVaild(start, end))
+    if(!this.isInputVaild(start, end))
     {
       return ''
     }
     else
     {
-      return generateMultiplicationTable(start, end)
+      return this.generateMultiplicationTable(start, end)
     }
   }
-}
 
-function generateMultiplicationTable(start: number, end: number):string{
-  const distanceBetweenStartandEnd = end - start
-  let multiplicationTable = ''
-  for(let i=0; i<=distanceBetweenStartandEnd; i++)    ////loop for every line
-  {
-    const lineNum = start + i
-    for(let j=0; j<i+1; j++) //////loop for every column of one line
+  private generateMultiplicationTable(start: number, end: number):string{
+    const distanceBetweenStartandEnd = end - start
+    let multiplicationTable = ''
+    for(let i=0; i<=distanceBetweenStartandEnd; i++)    ////loop for every line
     {
-      multiplicationTable = multiplicationTable + generateCell(start+j,lineNum) + '  '
+      multiplicationTable += this.generateLine(start,i)
     }
-    multiplicationTable = multiplicationTable.substring(0, multiplicationTable.length-2)
-    multiplicationTable += '\n'
+    multiplicationTable = multiplicationTable.substring(0, multiplicationTable.length-1)
+    return multiplicationTable
   }
-  multiplicationTable = multiplicationTable.substring(0, multiplicationTable.length-1)
-  return multiplicationTable
-}
 
-function generateCell(num1: number, num2: number):string{
-  return num1+ '*' + num2 + '=' + num1*num2
-}
+  private generateLine(start:number, index:number):string{
+    let lineResult = ''
+    for(let j=0; j<index+1; j++) //////loop for every column of one line
+    {
+      lineResult = lineResult + this.generateCell(start+j,start + index) + '  '
+    }
+    lineResult = lineResult.substring(0, lineResult.length-2)
+    lineResult += '\n'
+    return lineResult
+  }
 
-function isInputVaild(start: number, end: number):boolean{
-  if(!isStartNotGreaterThanEnd(start, end))
-  {
-    return false
+  private generateCell(num1: number, num2: number):string{
+    return num1+ '*' + num2 + '=' + num1*num2
   }
-  if(!isInputIntheRange(start, end))
-  {
-    return false
-  }
-  return true
-}
 
-function isStartNotGreaterThanEnd(start: number, end: number):boolean{
-  if(start>end)
-  {
-    return false
+  private isInputVaild(start: number, end: number):boolean{
+    if(!this.isStartNotGreaterThanEnd(start, end))
+    {
+      return false
+    }
+    if(!this.isInputIntheRange(start, end))
+    {
+      return false
+    }
+    return true
   }
-  return true
-}
 
-function isInputIntheRange(start: number, end: number):boolean{
-  if(start<1 || start>10 || end<1 || end>10)
-  {
-    return false
+  private isStartNotGreaterThanEnd(start: number, end: number):boolean{
+    if(start>end)
+    {
+      return false
+    }
+    return true
   }
-  return true
+
+  private isInputIntheRange(start: number, end: number):boolean{
+    if(start<1 || start>10 || end<1 || end>10)
+    {
+      return false
+    }
+    return true
+  }
 }
