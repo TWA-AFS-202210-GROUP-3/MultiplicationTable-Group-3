@@ -1,15 +1,15 @@
 export function render(start: number, end: number): string{
     const validResult = IsNumberValid(start, end)
-    var Result = ''
+    var ResultTable = ''
     if (validResult == true){
       for(let i = start; i <= end; i++){
-        Result += GenerateMultipleResult(start, i)
+        ResultTable += GenerateMultipleResult(start, i)
         if(i != end){
-          Result += '\n'
+          ResultTable += '\n'
         }
       }
     }
-  return Result
+  return ResultTable
 }
 
 export function IsNumberValid(start: number, end: number): boolean{
