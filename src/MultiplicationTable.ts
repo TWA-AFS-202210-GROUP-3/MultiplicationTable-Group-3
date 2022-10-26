@@ -51,8 +51,8 @@ export function GenerateMultipleResult(start: number, end: number): string{
   // for(let i = 1; i <= end - start; i + 2 * i){
   //   Result.split('').splice(i, 0, '\n')
   // }
-//   return Result
-// }
+  //   return Result
+  // }
 
 // export function GenerateMultipleResult(start: number, end: number): string{
 //   var Result = ''
